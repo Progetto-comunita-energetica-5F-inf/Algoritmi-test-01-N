@@ -1,4 +1,4 @@
-import time
+import tim5e
 batteria = 1000
 def countdown(batteria):
     timer = int(input('quante ore vuoi calcolare: '))
