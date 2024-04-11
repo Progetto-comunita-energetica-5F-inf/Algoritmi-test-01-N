@@ -29,8 +29,8 @@ def timer_trigger_Database(myTimer: func.TimerRequest) -> None:
 
     connesione=pymssql.connect(
                 server='ce2.database.windows.net',
-                user='ApiUser',
-                password='ApiTeam123',
+                user='AlgoUser',
+                password='AlgoTeam123',
                 database='CE')
     cursore= connesione.cursor() #Gestione chiusura connesione e ecursore MANCANTE
     
