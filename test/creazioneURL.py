@@ -10,7 +10,7 @@ def inserisci_dati_in_database(json_data):
         dati_stimati = dati_json["estimated_actuals"]
 
         # Connessione al database SQL Server
-        conn = pymssql.connect(server='ce2.database.windows.net', user='AlgoUser', password='AlgoTeam123', database='CE')
+        conn = pymssql.connect(server='ce2.database.windows.net', user='AlgoUser', password='Algoritmi123', database='CE')
         cursore= connesione.cursor()
 
         # Inserimento dei dati nel database 

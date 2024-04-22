@@ -1,6 +1,6 @@
 import json
 import http.client
-import pymongo
+import pymssql
 def get_apidati():
     latitude = -33.856784
     longitude = 151.215297
@@ -21,12 +21,32 @@ def get_apidati():
 
     dati_stimati = dati_json["estimated_actuals"]
     return dati_stimati
+def connessione():
+    try:
+        conn = pymssql.connect(server='ce2.database.windows.net', user='AlgoTeam', password='Algoritmi123', database='CE')
+        cursore= conn.cursor()
+        return cursore
+        
+    except Exception as e:
+        print(e)
 def get_dati():
     dati_stimati = get_apidati()
     ghi = []
     for dato in dati_stimati:
         ghi.append(dato["ghi"])  
-    print(ghi)
-get_dati()
+    return ghi
+def calcolo_produzione():
+    conn = connessione()
+    ghi = get_dati()
+    sup = 150
+    potenza = 20
+    for i in ghi:
+        kwh = i/1000
+        cal = kwh * sup * potenza
+        print(cal)
+
+
+calcolo_produzione()
+
 
 
